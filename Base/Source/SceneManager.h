@@ -17,7 +17,6 @@
 #include "Enemy.h"
 #include "GameStateManager.h"
 
-const float SKYBOXSIZE = 1000.f;
 
 class CSceneManager : public Scene
 {
@@ -109,6 +108,14 @@ class CSceneManager : public Scene
 
 public:
 	static double timer;
+	static float SKYBOXSIZE;
+	static int EnemyTopLeft;
+	static int EnemyTopRight;
+	static int EnemyBottomLeft;
+	static int EnemyBottomRight;
+	static int TreeMinValue;
+	static int TreeMaxValue;
+	static int TreeDistance;
 
 	CSceneManager(void);
 	CSceneManager(const int m_window_width, const int m_window_height);

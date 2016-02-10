@@ -32,6 +32,14 @@ CGameStateManager* Application::S_GSM = NULL;
 int Application::m_window_width = 0;
 int Application::m_window_height = 0;
 double CSceneManager::timer = 0;
+float CSceneManager::SKYBOXSIZE = 0;
+int CSceneManager::EnemyTopLeft = 0;
+int CSceneManager::EnemyTopRight = 0;
+int CSceneManager::EnemyBottomLeft = 0;
+int CSceneManager::EnemyBottomRight = 0;
+int CSceneManager::TreeMinValue = 0;
+int CSceneManager::TreeMaxValue = 0;
+int CSceneManager::TreeDistance = 0;
 
 int Application::ReadingLua()
 {
@@ -69,6 +77,71 @@ int Application::ReadingLua()
 		return -1;
 	}
 	CSceneManager::timer = (double)lua_tonumber(L, -1);
+
+	//Skybox size
+	lua_getglobal(L, "SKYBOX_SIZE");
+	if (!lua_isnumber(L, -1)) {
+		printf("`SKYBOX_SIZE' should be a number\n");
+		return -1;
+	}
+	CSceneManager::SKYBOXSIZE = (int)lua_tonumber(L, -1);
+
+	//Enemy Top Left
+	lua_getglobal(L, "ENEMY_TOP_LEFT");
+	if (!lua_isnumber(L, -1)) {
+		printf("`ENEMY_TOP_LEFT' should be a number\n");
+		return -1;
+	}
+	CSceneManager::EnemyTopLeft = (int)lua_tonumber(L, -1);
+
+	//Enemy Top Right
+	lua_getglobal(L, "ENEMY_TOP_RIGHT");
+	if (!lua_isnumber(L, -1)) {
+		printf("`ENEMY_TOP_RIGHT' should be a number\n");
+		return -1;
+	}
+	CSceneManager::EnemyTopRight = (int)lua_tonumber(L, -1);
+
+	//Enemy Bottom Left
+	lua_getglobal(L, "ENEMY_BOTTOM_LEFT");
+	if (!lua_isnumber(L, -1)) {
+		printf("`ENEMY_BOTTOM_LEFT' should be a number\n");
+		return -1;
+	}
+	CSceneManager::EnemyBottomLeft = (int)lua_tonumber(L, -1);
+
+	//Enemy Bottom Right
+	lua_getglobal(L, "ENEMY_BOTTOM_RIGHT");
+	if (!lua_isnumber(L, -1)) {
+		printf("`ENEMY_BOTTOM_RIGHT' should be a number\n");
+		return -1;
+	}
+	CSceneManager::EnemyBottomRight = (int)lua_tonumber(L, -1);
+
+	//Tree Min Value
+	lua_getglobal(L, "TREE_MIN_VALUE");
+	if (!lua_isnumber(L, -1)) {
+		printf("`TREE_MIN_VALUE' should be a number\n");
+		return -1;
+	}
+	CSceneManager::TreeMinValue = (int)lua_tonumber(L, -1);
+
+	//Tree Max Value
+	lua_getglobal(L, "TREE_MAX_VALUE");
+	if (!lua_isnumber(L, -1)) {
+		printf("`TREE_MAX_VALUE' should be a number\n");
+		return -1;
+	}
+	CSceneManager::TreeMaxValue = (int)lua_tonumber(L, -1);
+
+	//Tree Min Value
+	lua_getglobal(L, "TREE_DISTANCE_BETWEEN");
+	if (!lua_isnumber(L, -1)) {
+		printf("`TREE_DISTANCE_BETWEEN' should be a number\n");
+		return -1;
+	}
+	CSceneManager::TreeDistance = (int)lua_tonumber(L, -1);
+
 
 	lua_close(L);
 

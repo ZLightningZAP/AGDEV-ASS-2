@@ -274,9 +274,9 @@ void CSceneManager::Init()
 	tree->Init(meshList[GEO_TREETRUNK], meshList[GEO_TREELEAF], Vector3(0, -10, 0));
 	m_treelist.push_back(tree);*/
 
-	for (int i = -230; i != 470; i += 70)
+	for (int i = TreeMinValue; i != TreeMaxValue; i += TreeDistance)
 	{
-		for (int k = -230; k != 470; k += 70)
+		for (int k = TreeMinValue; k != TreeMaxValue; k += TreeDistance)
 		{
 			CTree* tree = new CTree();
 			tree->Init(meshList[GEO_TREETRUNK], meshList[GEO_TREELEAF], Vector3(i, -10, k));
@@ -284,7 +284,7 @@ void CSceneManager::Init()
 		}
 	}
 
-	for (int g = 0; g < 7; g++)
+	for (int g = 0; g < EnemyTopLeft; g++)
 	{
 		CEnemy* enemy = new CEnemy();
 		int randomx = rand() % 300 + 20;
@@ -294,7 +294,7 @@ void CSceneManager::Init()
 		m_enemylist.push_back(enemy);
 	}
 
-	for (int g = 0; g < 7; g++)
+	for (int g = 0; g < EnemyTopRight; g++)
 	{
 		CEnemy* enemy = new CEnemy();
 		int randomx = rand() % 300 + 20;
@@ -304,7 +304,7 @@ void CSceneManager::Init()
 		m_enemylist.push_back(enemy);
 	}
 
-	for (int g = 0; g < 7; g++)
+	for (int g = 0; g < EnemyBottomLeft; g++)
 	{
 		CEnemy* enemy = new CEnemy();
 		int randomx = rand() % 300 + 20;
@@ -314,7 +314,7 @@ void CSceneManager::Init()
 		m_enemylist.push_back(enemy);
 	}
 
-	for (int g = 0; g < 7; g++)
+	for (int g = 0; g < EnemyBottomRight; g++)
 	{
 		CEnemy* enemy = new CEnemy();
 		int randomx = rand() % 300 + 20;
