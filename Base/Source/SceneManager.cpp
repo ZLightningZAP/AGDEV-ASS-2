@@ -247,14 +247,32 @@ void CSceneManager::Init()
 	//Load all the objects into the scene
 	meshList[GEO_PLAYER] = MeshBuilder::GenerateOBJ("Player", "OBJ//Character.obj");
 	meshList[GEO_PLAYER]->textureID = LoadTGA("Image//Character.tga");
-	meshList[GEO_ENEMY] = MeshBuilder::GenerateOBJ("Santa", "OBJ//Santa.obj");
-	meshList[GEO_ENEMY]->textureID = LoadTGA("Image//Santa.tga");
 	meshList[GEO_GUN] = MeshBuilder::GenerateOBJ("Gun", "OBJ//Gun.obj");
 	meshList[GEO_GUN]->textureID = LoadTGA("Image//Gun.tga");
+
+	//Enemy High Mid Low Res Init
+	meshList[GEO_ENEMY] = MeshBuilder::GenerateOBJ("Santa", "OBJ//Santa.obj");
+	meshList[GEO_ENEMY]->textureID = LoadTGA("Image//Santa.tga");
+	meshList[GEO_ENEMY_RES_MID] = MeshBuilder::GenerateOBJ("Santa", "OBJ//SantaMidRes.obj");
+	meshList[GEO_ENEMY_RES_MID]->textureID = LoadTGA("Image//Santa.tga");
+	meshList[GEO_ENEMY_RES_LOW] = MeshBuilder::GenerateOBJ("Santa", "OBJ//SantaLowRes.obj");
+	meshList[GEO_ENEMY_RES_LOW]->textureID = LoadTGA("Image//Santa.tga");
+	
+	//TreeTrunk High Mid Low Res Init
 	meshList[GEO_TREETRUNK] = MeshBuilder::GenerateOBJ("Treetrunk", "OBJ//Wood.obj");
 	meshList[GEO_TREETRUNK]->textureID = LoadTGA("Image//TreeWood.tga");
+	meshList[GEO_TREETRUNK_RES_MID] = MeshBuilder::GenerateOBJ("Treetrunk", "OBJ//WoodMidRes.obj");
+	meshList[GEO_TREETRUNK_RES_MID]->textureID = LoadTGA("Image//TreeWood.tga");
+	meshList[GEO_TREETRUNK_RES_LOW] = MeshBuilder::GenerateOBJ("Treetrunk", "OBJ//WoodLowRes.obj");
+	meshList[GEO_TREETRUNK_RES_LOW]->textureID = LoadTGA("Image//TreeWood.tga");
+
+	//TreeLeaf High Mid Low Res Init
 	meshList[GEO_TREELEAF] = MeshBuilder::GenerateOBJ("Treeleaf", "OBJ//Leaf.obj");
 	meshList[GEO_TREELEAF]->textureID = LoadTGA("Image//Treeleaf.tga");
+	meshList[GEO_TREELEAF_RES_MID] = MeshBuilder::GenerateOBJ("Treeleaf", "OBJ//LeafMidRes.obj");
+	meshList[GEO_TREELEAF_RES_MID]->textureID = LoadTGA("Image//Treeleaf.tga");
+	meshList[GEO_TREELEAF_RES_LOW] = MeshBuilder::GenerateOBJ("Treeleaf", "OBJ//LeafLowRes.obj");
+	meshList[GEO_TREELEAF_RES_LOW]->textureID = LoadTGA("Image//Treeleaf.tga");
 
 	meshList[GEO_RAY] = MeshBuilder::GenerateRay("Bullet ray", 10.f);
 

@@ -8,6 +8,7 @@
 #include "IntroState.h"
 #include "MenuState.h"
 #include "InstructionState.h"
+#include "LevelOfDetail.h"
 
 #define TYPE_OF_VIEW 3	// 2 = 2D, 3 = 3D
 
