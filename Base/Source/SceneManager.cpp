@@ -829,7 +829,7 @@ void CSceneManager::RenderMobileObjects()
  ********************************************************************************/
 void CSceneManager::RenderFixedObjects()
 {
-	RenderMesh(meshList[GEO_AXES], false);
+	//RenderMesh(meshList[GEO_AXES], false);
 
 	/*modelStack.PushMatrix();
 	modelStack.Translate(-20, 0, -20);
