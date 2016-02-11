@@ -2,7 +2,7 @@
 #define LEVEL_OF_DETAIL_H
 
 #include "Mesh.h"
-#include "..\Base\Source\Object\GameObject.h"
+#include "Vector3.h"
 
 class LevelOfDetail
 {
@@ -19,7 +19,7 @@ public:
 	~LevelOfDetail();
 
 	void Init(Mesh* Resolution[NUM_RESOLUTION]);
-	Mesh* Update(double dt, CTransform* me, CTransform* object);
+	Mesh* Update(double dt, Vector3 me, Vector3 object);
 
 	static int HIGH_RES_DIST;
 	static int MID_RES_DIST;

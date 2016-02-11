@@ -16,6 +16,7 @@
 #include "Projectile.h"
 #include "Enemy.h"
 #include "GameStateManager.h"
+#include "LevelOfDetail.h"
 
 
 class CSceneManager : public Scene
@@ -93,11 +94,7 @@ class CSceneManager : public Scene
 		GEO_INSTRUCTIONS,
 		GEO_PLAYER,
 		GEO_TREETRUNK,
-		GEO_TREETRUNK_RES_MID,
-		GEO_TREETRUNK_RES_LOW,
 		GEO_TREELEAF,
-		GEO_TREELEAF_RES_MID,
-		GEO_TREELEAF_RES_LOW,
 		GEO_ENEMY,
 		GEO_ENEMY_RES_MID,
 		GEO_ENEMY_RES_LOW,

@@ -168,6 +168,9 @@
     <ClCompile Include="Source\Projectile\Projectile2.cpp">
       <Filter>Projectile</Filter>
     </ClCompile>
+    <ClCompile Include="Source\LevelOfDetail.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application.h">
@@ -318,6 +321,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Assignment 1 (Potato%27s Edition)\Base\Source\Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\LevelOfDetail.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

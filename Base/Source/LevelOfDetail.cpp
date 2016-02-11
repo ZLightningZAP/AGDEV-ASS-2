@@ -19,9 +19,9 @@ void LevelOfDetail::Init(Mesh* Resolution[NUM_RESOLUTION])
 	}
 }
 
-Mesh* LevelOfDetail::Update(double dt, CTransform* me, CTransform* object)
+Mesh* LevelOfDetail::Update(double dt, Vector3 me, Vector3 object)
 {
-	float DistSq = (me->m_translate - object->m_translate).LengthSquared();
+	float DistSq = (me - object).LengthSquared();
 
 	if (DistSq >= HIGH_RES_DIST * HIGH_RES_DIST)
 	{

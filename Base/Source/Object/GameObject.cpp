@@ -16,6 +16,16 @@ void CGameObject::Init(Mesh* mesh, CTransform* transform, bool active, bool rend
 	//CCollider::Init(CT_AABB, m_transform, X_MIDDLE, Y_BOTTOM, true);
 }
 
+void CGameObject::UpdateLod(Vector3 target)
+{
+	m_mesh = lod.Update(0, m_transform.m_translate, target);
+}
+
+void CGameObject::InitLod(Mesh* Resolution[LevelOfDetail::NUM_RESOLUTION])
+{
+	lod.Init(Resolution);
+}
+
 void CGameObject::Update(const double dt)
 {
 }

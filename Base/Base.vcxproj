@@ -22,6 +22,7 @@
     <ClCompile Include="Source\InstructionState.cpp" />
     <ClCompile Include="Source\IntroScene.cpp" />
     <ClCompile Include="Source\IntroState.cpp" />
+    <ClCompile Include="Source\LevelOfDetail.cpp" />
     <ClCompile Include="Source\LoadOBJ.cpp" />
     <ClCompile Include="Source\LoadTGA.cpp" />
     <ClCompile Include="Source\main.cpp" />
@@ -74,6 +75,7 @@
     <ClInclude Include="Source\InstructionState.h" />
     <ClInclude Include="Source\IntroScene.h" />
     <ClInclude Include="Source\IntroState.h" />
+    <ClInclude Include="Source\LevelOfDetail.h" />
     <ClInclude Include="Source\Light.h" />
     <ClInclude Include="Source\LoadOBJ.h" />
     <ClInclude Include="Source\LoadTGA.h" />

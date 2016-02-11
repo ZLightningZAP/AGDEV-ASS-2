@@ -261,18 +261,10 @@ void CSceneManager::Init()
 	//TreeTrunk High Mid Low Res Init
 	meshList[GEO_TREETRUNK] = MeshBuilder::GenerateOBJ("Treetrunk", "OBJ//Wood.obj");
 	meshList[GEO_TREETRUNK]->textureID = LoadTGA("Image//TreeWood.tga");
-	meshList[GEO_TREETRUNK_RES_MID] = MeshBuilder::GenerateOBJ("Treetrunk", "OBJ//WoodMidRes.obj");
-	meshList[GEO_TREETRUNK_RES_MID]->textureID = LoadTGA("Image//TreeWood.tga");
-	meshList[GEO_TREETRUNK_RES_LOW] = MeshBuilder::GenerateOBJ("Treetrunk", "OBJ//WoodLowRes.obj");
-	meshList[GEO_TREETRUNK_RES_LOW]->textureID = LoadTGA("Image//TreeWood.tga");
 
 	//TreeLeaf High Mid Low Res Init
 	meshList[GEO_TREELEAF] = MeshBuilder::GenerateOBJ("Treeleaf", "OBJ//Leaf.obj");
 	meshList[GEO_TREELEAF]->textureID = LoadTGA("Image//Treeleaf.tga");
-	meshList[GEO_TREELEAF_RES_MID] = MeshBuilder::GenerateOBJ("Treeleaf", "OBJ//LeafMidRes.obj");
-	meshList[GEO_TREELEAF_RES_MID]->textureID = LoadTGA("Image//Treeleaf.tga");
-	meshList[GEO_TREELEAF_RES_LOW] = MeshBuilder::GenerateOBJ("Treeleaf", "OBJ//LeafLowRes.obj");
-	meshList[GEO_TREELEAF_RES_LOW]->textureID = LoadTGA("Image//Treeleaf.tga");
 
 	meshList[GEO_RAY] = MeshBuilder::GenerateRay("Bullet ray", 10.f);
 
@@ -302,6 +294,13 @@ void CSceneManager::Init()
 		}
 	}
 
+	Mesh* resList[LevelOfDetail::NUM_RESOLUTION] =
+	{
+		meshList[GEO_ENEMY_RES_LOW],
+		meshList[GEO_ENEMY_RES_MID],
+		meshList[GEO_ENEMY],
+	};
+
 	for (int g = 0; g < EnemyTopLeft; g++)
 	{
 		CEnemy* enemy = new CEnemy();
@@ -309,6 +308,7 @@ void CSceneManager::Init()
 		int randomz = rand() % 300 + 20;
 		enemy->Init(meshList[GEO_ENEMY], Vector3(randomx, -10, randomz));
 		//enemy->SetRender(false);
+		enemy->InitLod(resList);
 		m_enemylist.push_back(enemy);
 	}
 
@@ -319,6 +319,7 @@ void CSceneManager::Init()
 		int randomz = rand() % 300 + 20;
 		enemy->Init(meshList[GEO_ENEMY], Vector3(-randomx, -10, randomz));
 		//enemy->SetRender(false);
+		enemy->InitLod(resList);
 		m_enemylist.push_back(enemy);
 	}
 
@@ -329,6 +330,7 @@ void CSceneManager::Init()
 		int randomz = rand() % 300 + 20;
 		enemy->Init(meshList[GEO_ENEMY], Vector3(randomx, -10, -randomz));
 		//enemy->SetRender(false);
+		enemy->InitLod(resList);
 		m_enemylist.push_back(enemy);
 	}
 
@@ -339,6 +341,7 @@ void CSceneManager::Init()
 		int randomz = rand() % 300 + 20;
 		enemy->Init(meshList[GEO_ENEMY], Vector3(-randomx, -10, -randomz));
 		//enemy->SetRender(false);
+		enemy->InitLod(resList);
 		m_enemylist.push_back(enemy);
 	}
 
@@ -491,6 +494,7 @@ void CSceneManager::Update(double dt)
 		if (enemy->CObject::GetActive())
 		{
 			enemy->Update(dt, m_cAvatar->GetPosition());
+			enemy->UpdateLod(m_cAvatar->GetPosition());
 		}
 	}
 
