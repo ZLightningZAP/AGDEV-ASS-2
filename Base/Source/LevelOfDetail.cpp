@@ -23,11 +23,11 @@ Mesh* LevelOfDetail::Update(double dt, Vector3 me, Vector3 object)
 {
 	float DistSq = (me - object).LengthSquared();
 
-	if (DistSq >= HIGH_RES_DIST * HIGH_RES_DIST)
+	if (DistSq < HIGH_RES_DIST)
 	{
 		return m_Resolution[RES_HIGH];
 	}
-	else if ((DistSq < HIGH_RES_DIST * HIGH_RES_DIST) && (DistSq >= MID_RES_DIST * MID_RES_DIST))
+	else if (DistSq < MID_RES_DIST)
 	{
 		return m_Resolution[RES_MID];
 	}

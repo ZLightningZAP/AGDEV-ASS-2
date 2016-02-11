@@ -144,21 +144,21 @@ int Application::ReadingLua()
 	}
 	CSceneManager::TreeDistance = (int)lua_tonumber(L, -1);
 
-	////HIGH_RES_DIST
-	//lua_getglobal(L, "HIGH_RES_DIST");
-	//if (!lua_isnumber(L, -1)) {
-	//	printf("`HIGH_RES_DIST' should be a number\n");
-	//	return -1;
-	//}
-	//LevelOfDetail::HIGH_RES_DIST = (int)lua_tonumber(L, -1);
+	//HIGH_RES_DIST
+	lua_getglobal(L, "HIGH_RES_DIST");
+	if (!lua_isnumber(L, -1)) {
+		printf("`HIGH_RES_DIST' should be a number\n");
+		return -1;
+	}
+	LevelOfDetail::HIGH_RES_DIST = (int)lua_tonumber(L, -1);
 
-	////MID_RES_DIST
-	//lua_getglobal(L, "MID_RES_DIST");
-	//if (!lua_isnumber(L, -1)) {
-	//	printf("`MID_RES_DIST' should be a number\n");
-	//	return -1;
-	//}
-	//LevelOfDetail::MID_RES_DIST = (int)lua_tonumber(L, -1);
+	//MID_RES_DIST
+	lua_getglobal(L, "MID_RES_DIST");
+	if (!lua_isnumber(L, -1)) {
+		printf("`MID_RES_DIST' should be a number\n");
+		return -1;
+	}
+	LevelOfDetail::MID_RES_DIST = (int)lua_tonumber(L, -1);
 
 
 	lua_close(L);
